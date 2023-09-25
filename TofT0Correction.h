@@ -16,15 +16,22 @@ class TofT0Correction {
     private:
         double t0;
         double c;
+        double tof; // raw time of flight
+        double trackLength;
+        double p; // momentum
+        double beta; // beta buffer
 
     public:
-        TofT0Correction(){ c= 29.98; }
+        TofT0Correction(){ ReSet(); }
         ~TofT0Correction(){}
         void SetT0(double t0);
-        double GetBTofBeta(StPicoDst* pico, StPicoEvent* event, StPicoTrack* track, bool getRaw);
-        double GetETofBeta(StPicoDst* pico, StPicoEvent* event, StPicoTrack* track, bool getRaw);
-        double GetBTofMass2(StPicoDst* pico, StPicoEvent* event, StPicoTrack* track, bool getRaw);
-        double GetETofMass2(StPicoDst* pico, StPicoEvent* event, StPicoTrack* track, bool getRaw);
+        void ReSet();
+        bool ReadBTofTrack(StPicoDst* pico, StPicoEvent* event, StPicoTrack* track);
+        bool ReadETofTrack(StPicoDst* pico, StPicoEvent* event, StPicoTrack* track);
+        double GetBeta();
+        double GetBeta(double t0);
+        double GetMass2(bool read_buffer);
+        double GetMass2(double t0, bool read_buffer);
 };
 
 
