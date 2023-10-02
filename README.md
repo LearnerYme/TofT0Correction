@@ -1,10 +1,10 @@
 # TOF t0 correction / recalibration package
 
-Version: 2.0
+Version: 2.1
 
 Author: Yige Huang
 
-Date: 25.09.2023
+Date: 02.10.2023
 
 ## Usage
 
@@ -43,6 +43,12 @@ Date: 25.09.2023
 ```
 
 ## Change Log
+
+02.10.2023 by yghuang (v2.1):
+
+> The getter of mass square WAS calculating mass instead of mass square!
+>
+> This is a fatal bug, and is not fixed.
 
 25.09.2023 by yghuang (v2.0):
 

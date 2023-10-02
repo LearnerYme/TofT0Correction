@@ -96,7 +96,7 @@ double TofT0Correction::GetMass2(bool read_buffer=true) {
         beta = GetBeta();
     }
     if (beta == 0.0 || beta < -990) { return -999.0; } 
-    return p*sqrt(1.0 / beta / beta - 1.0);
+    return p*p * (1.0 / beta / beta - 1.0);
 }
 
 double TofT0Correction::GetMass2(double t0, bool read_buffer=true) {
@@ -104,5 +104,5 @@ double TofT0Correction::GetMass2(double t0, bool read_buffer=true) {
         beta = GetBeta(t0);
     }
     if (beta == 0.0 || beta < -990) { return -999.0; } 
-    return p*sqrt(1.0 / beta / beta - 1.0);
+    return p*p * (1.0 / beta / beta - 1.0);
 }
